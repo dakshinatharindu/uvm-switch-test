@@ -14,6 +14,17 @@ interface #(
     logic [DATA_WIDTH-1:0] data_b;
 
     // Switch Modport
+    modport switch_md(
+        input clk,
+        input rstn,
+        input vld,
+        input addr,
+        input data,
+        output addr_a,
+        output data_a,
+        output addr_b,
+        output data_b
+    );
 
     modport 
 
