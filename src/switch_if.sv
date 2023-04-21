@@ -1,11 +1,11 @@
-interface #(
+interface switch_if #(
     parameter ADDR_WIDTH = 8,
     parameter DATA_WIDTH = 16,
-    parameter ADDR_DIV = 8'h3F) switch_if;
+    parameter ADDR_DIV = 8'h3F);
 
-    logic clk;
-    logic rstn;
-    logic vld;
+    logic clk = 0;
+    logic rstn = 1;
+    logic vld = 1;
     logic [ADDR_WIDTH-1:0] addr;
     logic [DATA_WIDTH-1:0] data;
     logic [ADDR_WIDTH-1:0] addr_a;
@@ -14,7 +14,7 @@ interface #(
     logic [DATA_WIDTH-1:0] data_b;
 
     // Switch Modport
-    modport switch_md(
+    modport switch_mp(
         input clk,
         input rstn,
         input vld,
@@ -25,8 +25,6 @@ interface #(
         output addr_b,
         output data_b
     );
-
-    modport 
 
     initial begin : clock_gen
       clk = 0;
