@@ -3,11 +3,11 @@ import switch_pkg::*;
 
 module top;
 
-   switch_if _if();
-   switch_wrapper dut(_if.switch_mp);
+   switch_if sw_if();
+   switch_wrapper dut(sw_if.switch_mp);
    
    initial begin
-    uvm_config_db #(virtual switch_if)::set(null, "uvm_test_top", "_vif", _if);
+    uvm_config_db #(virtual switch_if)::set(null, "uvm_test_top", "_vif", sw_if);
     
     run_test();
       

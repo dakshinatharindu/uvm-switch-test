@@ -1,7 +1,7 @@
 class switch_test extends uvm_test;
     `uvm_component_utils(switch_test)
 
-    virtual switch_if _vif;
+    config_db db;   // database to pass objects
 
     function new(string name="switch_test", uvm_component parent);
         super.new(name, parent);
@@ -9,25 +9,27 @@ class switch_test extends uvm_test;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-    //   env = counter_env::type_id::create("env",this);   
-        if (!uvm_config_db #(virtual switch_if)::get(this, "", "_vif", _vif))
+    //   env = counter_env::type_id::create("env",this);  
+        db = new(); 
+        if (!uvm_config_db #(virtual switch_if)::get(this, "", "_vif", db.sw_if))
             `uvm_fatal("INTERFACE", "No virtual interface found")
+        uvm_config_db #(config_db)::set(this, "*", "db", db);
     endfunction : build_phase
 
     task run_phase(uvm_phase phase);
         phase.raise_objection(this);
 
-        _vif.rstn = 1;
-        _vif.vld = 1;
-        @(posedge _vif.clk);
-        @(negedge _vif.clk);
+        db.sw_if.rstn = 1;
+        db.sw_if.vld = 1;
+        @(posedge db.sw_if.clk);
+        @(negedge db.sw_if.clk);
 
         repeat (5) begin
-            _vif.addr = $random;
-            _vif.data = $random;
-            @(posedge _vif.clk);
+            db.sw_if.addr = $random;
+            db.sw_if.data = $random;
+            @(posedge db.sw_if.clk);
             #2
-            $display("addr_a=%0b data_a=%0b addr_b=%0b data_b=%0b", _vif.addr_a, _vif.data_a, _vif.addr_b, _vif.data_b);
+            $display("addr_a=%0b data_a=%0b addr_b=%0b data_b=%0b", db.sw_if.addr_a, db.sw_if.data_a, db.sw_if.addr_b, db.sw_if.data_b);
         end
 
         phase.drop_objection(this);
