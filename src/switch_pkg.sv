@@ -9,14 +9,16 @@ package switch_pkg;
     `include "uvm_macros.svh"
 
     // uvm_object
-    `include "config_db.svh"
+    // `include "config_db.svh"
 
     // uvm_transactions
-    // `include "switch_req.svh"
+    `include "switch_req.svh"
     // `include "switch_res.svh"
-    // `include "test_seq.svh"
+    `include "test_seq.svh"
+    `include "driver.svh"
 
     // uvm_agents
+    `include "switch_agent.svh"
 
     // uvm_environment
     `include "switch_env.svh"
