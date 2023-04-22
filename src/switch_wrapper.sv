@@ -1,12 +1,11 @@
-module switch_wrapper #(
-    parameter ADDR_WIDTH = 8,
-    parameter DATA_WIDTH = 16,
-    parameter ADDR_DIV = 8'h3F
-) (
+module switch_wrapper (
     switch_if.switch_mp i
 );
 
-switch #(.ADDR_WIDTH(ADDR_WIDTH), .DATA_WIDTH(DATA_WIDTH), .ADDR_DIV(ADDR_DIV)) dut(
+switch #(
+    .ADDR_WIDTH(switch_pkg::ADDR_WIDTH), 
+    .DATA_WIDTH(switch_pkg::DATA_WIDTH), 
+    .ADDR_DIV(switch_pkg::ADDR_DIV)) dut(
     .clk(i.clk),
     .rstn(i.rstn),
     .vld(i.vld),

@@ -1,17 +1,14 @@
-interface switch_if #(
-    parameter ADDR_WIDTH = 8,
-    parameter DATA_WIDTH = 16,
-    parameter ADDR_DIV = 8'h3F);
+interface switch_if;
 
     logic clk = 0;
     logic rstn = 1;
     logic vld = 1;
-    logic [ADDR_WIDTH-1:0] addr;
-    logic [DATA_WIDTH-1:0] data;
-    logic [ADDR_WIDTH-1:0] addr_a;
-    logic [DATA_WIDTH-1:0] data_a;
-    logic [ADDR_WIDTH-1:0] addr_b;
-    logic [DATA_WIDTH-1:0] data_b;
+    logic [switch_pkg::ADDR_WIDTH-1:0] addr;
+    logic [switch_pkg::DATA_WIDTH-1:0] data;
+    logic [switch_pkg::ADDR_WIDTH-1:0] addr_a;
+    logic [switch_pkg::DATA_WIDTH-1:0] data_a;
+    logic [switch_pkg::ADDR_WIDTH-1:0] addr_b;
+    logic [switch_pkg::DATA_WIDTH-1:0] data_b;
 
     // Switch Modport
     modport switch_mp(
