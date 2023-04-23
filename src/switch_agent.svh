@@ -3,6 +3,7 @@ class switch_agent extends uvm_agent;
     `uvm_component_utils(switch_agent)
 
     driver drv;
+    monitor mon;
     uvm_sequencer #(switch_req) seqr;
 
     function new(string name = "switch_agent", uvm_component parent);
@@ -13,6 +14,7 @@ class switch_agent extends uvm_agent;
         super.build_phase(phase);
 
         drv = driver::type_id::create("drv", this);
+        mon = monitor::type_id::create("mon", this);
         seqr = uvm_sequencer #(switch_req)::type_id::create("seqr", this);
 
     endfunction : build_phase

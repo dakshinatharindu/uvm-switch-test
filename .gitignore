@@ -2,3 +2,4 @@ work/
 transcript
 vsim.wlf
 tr_db.log
+vsim_stacktrace.vstf

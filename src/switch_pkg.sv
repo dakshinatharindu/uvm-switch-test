@@ -13,10 +13,10 @@ package switch_pkg;
 
     // uvm_transactions
     `include "switch_req.svh"
-    // `include "switch_res.svh"
     `include "test_seq_a.svh"
     `include "test_seq_b.svh"
-    // `include "top_seq.svh"
+
+    `include "monitor.svh"
     `include "driver.svh"
 
     // uvm_agents
