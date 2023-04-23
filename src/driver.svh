@@ -21,13 +21,21 @@ class driver extends uvm_driver #(switch_req);
         forever begin
             switch_req req_tx;
             @(negedge sw_if.clk);
-            seq_item_port.get_next_item(req_tx);
+            seq_item_port.get(req_tx);
             `uvm_info("DRIVER", $sformatf("Driver got %s", req_tx.convert2str()), UVM_HIGH)
             sw_if.rstn = req_tx.rstn;
             sw_if.vld = req_tx.vld;
             sw_if.addr = req_tx.addr;
             sw_if.data = req_tx.data;
-            seq_item_port.item_done();
+            
+            @(posedge sw_if.clk);
+            #2;
+            req_tx.addr_a = sw_if.addr_a;
+            req_tx.data_a = sw_if.data_a;
+            req_tx.addr_b = sw_if.addr_b;
+            req_tx.data_b = sw_if.data_b;
+
+            seq_item_port.put(req_tx);
 
         end
     endtask

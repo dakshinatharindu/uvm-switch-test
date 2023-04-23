@@ -3,7 +3,7 @@ vlib work
 vlog -f compile.f
 onbreak {resume}
 set NoQuitOnFinish 1
-vsim -voptargs="+acc" top +UVM_TESTNAME=switch_test +UVM_VERBOSITY=UVM_HIGH
+vsim -voptargs="+acc" top +UVM_TESTNAME=switch_test +UVM_VERBOSITY=UVM_MEDIUM
 add wave /top/sw_if/clk
 add wave /top/sw_if/rstn
 add wave /top/sw_if/vld

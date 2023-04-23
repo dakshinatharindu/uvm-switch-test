@@ -28,6 +28,8 @@ class switch_test extends uvm_test;
 
     virtual task run_phase(uvm_phase phase);
         phase.raise_objection(this);
+        assert(seq_a.randomize());
+        assert(seq_b.randomize());
         fork
             seq_a.start(env.agnt.seqr);
             seq_b.start(env.agnt.seqr);
