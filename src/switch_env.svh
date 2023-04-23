@@ -13,5 +13,4 @@ class switch_env extends uvm_env;
         agnt = switch_agent::type_id::create("agnt", this);
     endfunction : build_phase
 
-    
 endclass
