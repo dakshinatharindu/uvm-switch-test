@@ -16,6 +16,9 @@ package switch_pkg;
     `include "test_seq_a.svh"
     `include "test_seq_b.svh"
 
+    // uvm_subscribers
+    `include "scoreboard.svh"
+
     `include "monitor.svh"
     `include "driver.svh"
 

@@ -34,7 +34,6 @@ class switch_test extends uvm_test;
             seq_a.start(env.agnt.seqr);
             seq_b.start(env.agnt.seqr);
         join
-        
         phase.drop_objection(this);
     endtask
 
