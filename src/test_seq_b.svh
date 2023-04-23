@@ -17,7 +17,7 @@ class test_seq_b extends uvm_sequence #(switch_req);
             `uvm_info("SEQ", $sformatf("Sent:\t%s", req_tx.convert2str()), UVM_MEDIUM)
             finish_item(req_tx);
             get_response(req_tx);
-            `uvm_info("SEQ", $sformatf("Got res:\t%s", req_tx.convert2str()), UVM_MEDIUM)
+            `uvm_info("SEQ", $sformatf("Got:\t%s", req_tx.convert2str()), UVM_MEDIUM)
         end
     endtask
 endclass

@@ -33,7 +33,7 @@ class monitor extends uvm_monitor;
             req_tx.data_b = sw_if.data_b;
 
             mon_analysis_port.write(req_tx);
-            `uvm_info("MON", $sformatf("Saw %s", req_tx.convert2str()), UVM_MEDIUM)
+            `uvm_info("MON", $sformatf("Saw \t\t%s", req_tx.convert2str()), UVM_MEDIUM)
         end
     endtask
 endclass
