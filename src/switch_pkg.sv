@@ -18,6 +18,7 @@ package switch_pkg;
 
     // uvm_subscribers
     `include "scoreboard.svh"
+    `include "func_coverage.svh"
 
     `include "monitor.svh"
     `include "driver.svh"
