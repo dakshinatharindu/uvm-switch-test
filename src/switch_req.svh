@@ -19,6 +19,6 @@ class switch_req extends uvm_sequence_item;
     endfunction
 
     virtual function string convert2str();
-        return $sformatf("rstn = %h, vld = %h, addr = %h, data = %h, addr_a = %h, data_a = %h, addr_b = %h, data_b = %h", rstn, vld, addr, data, addr_a, data_a, addr_b, data_b);
+        return $sformatf("rstn=%h, vld=%h, addr=%h, data=%h, addr_a=%h, data_a=%h, addr_b=%h, data_b=%h", rstn, vld, addr, data, addr_a, data_a, addr_b, data_b);
     endfunction
 endclass

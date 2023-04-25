@@ -14,7 +14,7 @@ class scoreboard extends uvm_scoreboard;
     endfunction : build_phase
 
     function void write(switch_req req_tx);
-        `uvm_info("SCORE", $sformatf("Got \t\t%s", req_tx.convert2str()), UVM_MEDIUM)
+        `uvm_info("SCORE", $sformatf("Got \t\t\t%s", req_tx.convert2str()), UVM_MEDIUM)
         if (!req_tx.rstn) begin 
             if (!{req_tx.addr_a, req_tx.addr_b, req_tx.data_a, req_tx.data_b})
                 `uvm_info("SCORE", "Passed rstn", UVM_HIGH)

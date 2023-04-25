@@ -41,7 +41,7 @@ class func_coverage extends uvm_subscriber #(switch_req);
     endfunction : build_phase
 
     function void write(switch_req t);
-        `uvm_info("COVER", $sformatf("Got \t\t%s", t.convert2str()), UVM_MEDIUM)
+        `uvm_info("COVER", $sformatf("Got \t\t\t%s", t.convert2str()), UVM_MEDIUM)
         req = t;
         switch_input.sample();
         switch_cross.sample();

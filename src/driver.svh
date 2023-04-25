@@ -21,7 +21,7 @@ class driver extends uvm_driver #(switch_req);
             switch_req req_tx;
             @(negedge sw_if.clk);
             seq_item_port.get(req_tx);
-            `uvm_info("DRIVER", $sformatf("Got %s", req_tx.convert2str()), UVM_MEDIUM)
+            `uvm_info("DRIVER", $sformatf("Got:\t\t\t%s", req_tx.convert2str()), UVM_MEDIUM)
             sw_if.rstn = req_tx.rstn;
             sw_if.vld = req_tx.vld;
             sw_if.addr = req_tx.addr;
@@ -33,7 +33,7 @@ class driver extends uvm_driver #(switch_req);
             req_tx.data_a = sw_if.data_a;
             req_tx.addr_b = sw_if.addr_b;
             req_tx.data_b = sw_if.data_b;
-            `uvm_info("DRIVER", $sformatf("Sent %s", req_tx.convert2str()), UVM_HIGH)
+            `uvm_info("DRIVER", $sformatf("Sent:\t\t\t%s", req_tx.convert2str()), UVM_HIGH)
             seq_item_port.put(req_tx);
         end
     endtask
