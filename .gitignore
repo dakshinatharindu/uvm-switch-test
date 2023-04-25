@@ -1,5 +1,10 @@
+*
+!*.*
 work/
 transcript
 vsim.wlf
 tr_db.log
 vsim_stacktrace.vstf
+wlftv3RVJ1
+wlftVkdGSF
+coverage.txt

@@ -3,7 +3,7 @@ class test_seq_b extends uvm_sequence #(switch_req);
     `uvm_object_utils(test_seq_b)
 
     rand int n_loops;
-    constraint n_loops_constr {n_loops inside {[20:30]};}
+    constraint n_loops_constr {n_loops inside {[5000:6000]};}
 
     function new(string name = "test_seq_b");
         super.new(name);
