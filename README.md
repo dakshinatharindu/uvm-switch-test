@@ -6,7 +6,7 @@ This is tested on Questasim. To run the simulation execute following command in 
 ```vsim -c -do run.do```
 
 ## DUT
-```
+```systemverilog
 module switch #
 (
     parameter ADDR_WIDTH = 8,
